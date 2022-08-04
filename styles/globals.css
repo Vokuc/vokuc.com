@@ -35,3 +35,7 @@ img {
     background: black;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
