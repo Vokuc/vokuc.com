@@ -12,11 +12,19 @@
 }
 
 .main {
-	max-width:  50rem;
+	max-width:  45rem;
+	margin: auto;
+	justify-content: center;
+	padding: 1rem;
 }
 
 .backToHome {
 	margin:  3rem 0 0;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around;
 }
 
 .li {
