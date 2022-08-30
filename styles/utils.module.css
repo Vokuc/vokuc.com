@@ -27,7 +27,7 @@
 }
 
 .borderCircle {
-  border-radius: 9999px;
+  border-radius: 100px;
 }
 
 .colorInherit {
@@ -50,4 +50,21 @@
 
 .lightText {
   color: #666;
+}
+
+.Image {
+  border: 3px green solid;
+  border-radius: 10px;
+  width: 530px;
+  height: 400px; 
+}
+
+.button {
+  background-color: #000000;
+  border-radius: 10px;
+  box-shadow: aqua;
+}
+
+.button a {
+  text-decoration: none;
 }

@@ -25,59 +25,51 @@ export default function Layout({ children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
-			<header className={styles.header}>
-				{home ? (
-					<>
-						<Image
-							priority
-							src="/images/me.jpg.jpg"
-							className={utilStyles.borderCircle}
-							height={100}
-							width={100}
-							alt={name}
-						/>
-						<nav>
-							<ul className="flex justify-around font-bold bg-blue-800 rounded">
-								<li className={styles.li}>
-									<Link href="/pages/software-engineering">
-										Software Engineering
-									</Link>
-								</li>
-								<li className={styles.li}>
-									<Link href="/pages/music">Music</Link>
-								</li>
-								<li className={styles.li}>
-									<Link href="/pages/posts">Blog</Link>
-								</li>
-							</ul>
-						</nav>
-						<h1 className={utilStyles.heading2Xl}>{name}</h1>
-					</>
-				) : (
-					<>
+			<div className={`lg:flex`}>
+				<header className={`lg:flex lg:flex-col  items-baseline`}>
+					{
+						<div>
+							<nav>
+								<ul className={`font-bold items-center lg:mr-2 lg:h-screen flex lg:flex-col justify-between`}>
+									<li className={styles.li}>
+										<Link href="/software-engineering">
+											<a>Software Engineering</a>
+										</Link>
+									</li>
+									<li className={styles.li}>
+										<Link href="/music">
+											<a>Music</a>
+										</Link>
+									</li>
+									<li className={styles.li}>
+										<Link href="/posts">
+											<a>Blog</a>
+										</Link>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					}
+				</header>
+				<main className={styles.main}>{children}</main>
+
+				{!home && (
+					<div className={styles.backToHome}>
 						<Link href="/">
-							<a>
-								<Image
-									priority
-									src="/images/me.jpg.jpg"
-									className={utilStyles.borderCircle}
-									height={108}
-									width={108}
-									alt={name}
-								/>
-							</a>
+							<a>← Back to home</a>
 						</Link>
-					</>
+					</div>
 				)}
-			</header>
-			<main className={styles.main}>{children}</main>
-			{!home && (
-				<div className={styles.backToHome}>
-					<Link href="/">
-						<a>← Back to home</a>
-					</Link>
-				</div>
-			)}
+
+				<footer className={`${styles.footer} m-auto mt-3 flex lg:flex-col lg:h-screen items-center justify-between`}>
+					<a>Spotify</a>
+					<a>AudioMack</a>
+					<a>Twitter</a>
+					<a>Facebook</a>
+					<a>Instagram</a>
+					<a>TikTok</a>
+				</footer>
+			</div>
 		</div>
 	);
 }
