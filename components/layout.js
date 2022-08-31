@@ -30,7 +30,9 @@ export default function Layout({ children, home }) {
 					{
 						<div>
 							<nav>
-								<ul className={`font-bold items-center lg:mr-2 lg:h-screen flex lg:flex-col justify-between`}>
+								<ul
+									className={`font-bold items-center lg:mr-2 lg:h-screen flex lg:flex-col justify-between`}
+								>
 									<li className={styles.li}>
 										<Link href="/software-engineering">
 											<a>Software Engineering</a>
@@ -51,23 +53,26 @@ export default function Layout({ children, home }) {
 						</div>
 					}
 				</header>
-				<main className={styles.main}>{children}</main>
+				<main className={styles.main}>
+					{children}
+					{!home && (
+						<div className={styles.backToHome}>
+							<Link href="/">
+								<a>← Back to home</a>
+							</Link>
+						</div>
+					)}
+				</main>
 
-				{!home && (
-					<div className={styles.backToHome}>
-						<Link href="/">
-							<a>← Back to home</a>
-						</Link>
-					</div>
-				)}
-
-				<footer className={`${styles.footer} m-auto mt-3 flex lg:flex-col lg:h-screen items-center justify-between`}>
-					<a>Spotify</a>
-					<a>AudioMack</a>
-					<a>Twitter</a>
-					<a>Facebook</a>
-					<a>Instagram</a>
-					<a>TikTok</a>
+				<footer
+					className={`${styles.footer} m-auto mt-3 flex lg:flex-col lg:h-screen items-center justify-between`}
+				>
+					<Link href=""><a className="">Spotify</a></Link>
+					<Link href=""><a>AudioMack</a></Link>
+					<Link href=""><a>Twitter</a></Link>
+					<Link href=""><a>Facebook</a></Link>
+					<Link href=""><a>Instagram</a></Link>
+					<Link href=""><a>TikTok</a></Link>
 				</footer>
 			</div>
 		</div>

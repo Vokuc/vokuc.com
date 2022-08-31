@@ -12,8 +12,8 @@ export default function Home() {
 				<title>{siteTitle}</title>
 			</Head>
 			<section className={utilStyles.headingMd}>
-				<p>
-					Hi There, My name is{" "}
+				<div>
+					Hi There! My name is{" "}
 					<span className="text-white">Ukpai Chika Kalu</span> I am
 					also known as
 					<span className="text-white"> Vokuc</span>
@@ -27,13 +27,13 @@ export default function Home() {
 							alt="photo of Chika"
 						/>
 						<div
-							className={`bg-blue-900 m-4 font-extrabold mx-2 h-auto rounded-lg p-8`}
+							className={`${utilStyles.profImg} bg-blue-900 m-4 font-extrabold h-32 mx-2 rounded-lg p-8`}
 						>
 							I AM A MUSIC PRODUCER AND SOFTWARE ENGINEER.
 						</div>
 					</div>
 					<div>
-						<div className="flex flex-col justify-center mt-8 p-4 bg-blue-900 rounded-md">
+						<div className="flex flex-col justify-center mt-8 p-4 bg-gradient-to-r from-black to-gray  rounded-md">
 							<span>Feel free to check out my music</span>
 							<Link href="/music/music">
 								<a>
@@ -45,7 +45,7 @@ export default function Home() {
 								</a>
 							</Link>
 						</div>
-						<div className="flex flex-col justify-center mt-8 p-4 bg-blue-900 rounded-md">
+						<div id="soft" className={`flex flex-col justify-center mt-8 bg-gradient-to-l from-black to-gray p-4 rounded-md`}>
 							<div>
 								Want to see the software engineering projects I
 								have worked on{" "}
@@ -62,7 +62,7 @@ export default function Home() {
 							</Link>
 						</div>
 					</div>
-				</p>
+				</div>
 			</section>
 		</Layout>
 	);
