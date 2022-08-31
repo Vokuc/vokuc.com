@@ -17,13 +17,13 @@ export default {
 			title: "Mp3 File",
 			name: "file",
 			type: "audio",
-			description: 'Upload beat here'
+			description: "Upload beat here",
 		},
 		{
-			title: 'slug',
-			name: 'slug',
-			type: 'slug',
-			options: {source: 'title'}
+			title: "slug",
+			name: "slug",
+			type: "slug",
+			options: { source: "title" },
 		},
 		{
 			title: "Emotion",
@@ -34,6 +34,17 @@ export default {
 			title: "Release Year",
 			name: "releaseYear",
 			type: "number",
+		},
+		{
+			title: "Type",
+			name: "type",
+			type: "string",
+		},
+		{
+			title: "Producers",
+			name: "producers",
+			type: "array",
+			of: [{ type: "string" }],
 		},
 	],
 };
