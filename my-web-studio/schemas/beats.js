@@ -8,15 +8,32 @@ export default {
 			name: "title",
 			type: "string",
 		},
-		{
+		/* {
 			title: "Cover Art",
 			name: "coverArt",
 			type: "mainImage",
+		}, */
+		{
+			title: "Cover Art",
+			name: "coverArt",
+			type: "image",
+			options: {
+				hotspot: true,
+			},
+		},
+		{
+			name: "alt",
+			type: "string",
+			title: "Alternative text",
+			description: "Important for SEO and accessiblity.",
+			options: {
+				isHighlighted: true,
+			},
 		},
 		{
 			title: "Mp3 File",
 			name: "file",
-			type: "audio",
+			type: "file",
 			description: "Upload beat here",
 		},
 		{
@@ -44,7 +61,7 @@ export default {
 			title: "Producers",
 			name: "producers",
 			type: "array",
-			of: [{ type: "string" }],
+			of: [{ type: "reference", to: [{type: "person"}] }],
 		},
 	],
 };

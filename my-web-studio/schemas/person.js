@@ -14,5 +14,23 @@ export default {
 			name: "image",
 			type: "image",
 		},
+		{
+			title: "Real Name",
+			name: "realName",
+			type: "string",
+		},
+		{
+			title: "Bio",
+			name: "bio",
+			type: "array",
+			of: [
+				{
+					type: "block",
+					title: "Block",
+					styles: [{ title: "Normal", value: "normal" }],
+					lists: [],
+				},
+			],
+		},
 	],
-}
+};

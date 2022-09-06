@@ -18,7 +18,7 @@ export default function Home() {
 					also known as
 					<span className="text-white"> Vokuc</span>
 					<br />
-					<div className={`xl:flex mt-8`}>
+					<div className={`xl:flex mt-8 md:flex`}>
 						<Image
 							src="/../public/images/meinwhite.jpg"
 							className={utilStyles.Image}
@@ -27,7 +27,7 @@ export default function Home() {
 							alt="photo of Chika"
 						/>
 						<div
-							className={`${utilStyles.profImg} bg-blue-900 m-4 font-extrabold h-32 mx-2 rounded-lg p-8`}
+							className={`${utilStyles.profImg} bg-blue-900 m-4 font-extrabold md:h-48 h-32 mx-2 rounded-lg p-8`}
 						>
 							I AM A MUSIC PRODUCER AND SOFTWARE ENGINEER.
 						</div>
@@ -45,7 +45,10 @@ export default function Home() {
 								</a>
 							</Link>
 						</div>
-						<div id="soft" className={`flex flex-col justify-center mt-8 bg-gradient-to-l from-black to-gray p-4 rounded-md`}>
+						<div
+							id="soft"
+							className={`flex flex-col justify-center mt-8 bg-gradient-to-l from-black to-gray p-4 rounded-md`}
+						>
 							<div>
 								Want to see the software engineering projects I
 								have worked on{" "}
