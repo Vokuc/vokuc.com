@@ -11,7 +11,7 @@ export default function Layout({ children, home }) {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<link rel="icon" href="../public/images/vokuc_sound_logo.png" type="image/icon"/>
+				<link rel="icon" href="/public/images/vokuc_sound_logo.png" type="image/icon"/>
 				<meta
 					name="description"
 					content="Learn how to build a personal website using Next.js"
@@ -37,7 +37,7 @@ export default function Layout({ children, home }) {
 										</Link>
 									</li>
 									<li className={styles.li}>
-										<Link href="/posts">
+										<Link href="/blog">
 											<a>Blog</a>
 										</Link>
 									</li>

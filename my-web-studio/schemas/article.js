@@ -16,6 +16,14 @@ export default {
 			options: { source: "title" },
 		},
 		{
+			title: "Main Image",
+			name: "mainImage",
+			type: "image",
+			options: {
+				hotspot: true,
+			},
+		},
+		{
 			title: "Content",
 			name: "content",
 			type: "array",
@@ -27,6 +35,18 @@ export default {
 					lists: [],
 				},
 			],
+		},
+		{
+			title: "Authors",
+			name: "authors",
+			type: "array",
+			of: [{ type: "reference", to: [{ type: "person" }] }],
+		},
+		{
+			title: "Tags",
+			name: "tags",
+			type: "array",
+			of: [{ type: "string" }],
 		},
 	],
 };
