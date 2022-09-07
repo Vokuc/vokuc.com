@@ -15,7 +15,7 @@ const freeBeatsQuery = `*[_type == "beats" && type == "free"]{
   file {"url": asset -> url},
   title,
   type,
-  producers,
+  producers[]->{name},
   alt
 }`;
 
@@ -28,11 +28,11 @@ export default function freeBeats({ freeBeats }) {
 					FREE BEATS
 				</h1>
 
-				<ul className="flex">
+				<ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
 					{freeBeats?.length > 0 &&
 						freeBeats.map((free) => (
 							<li
-								className={`${beatStyle.li} flex flex-col w-32 bg-black m-4 p-2 rounded-md`}
+								className={`${beatStyle.li} flex flex-col h-40 w-32 bg-black m-2 p-2 rounded-md`}
 								key={free._id}
 							>
 								<Image
@@ -44,9 +44,9 @@ export default function freeBeats({ freeBeats }) {
 								<audio controls>
 									<source src={free.file.url} type="audio/mp3" />
 								</audio>
-								<div className="flex flex-col bg-red-900 m-2 p-2">
-									<span>{free.producers}</span>
-									<span>{free.title}</span>
+								<div className="flex flex-col bg-red-900 rounded p-1">
+									<span className="">{free.title}</span>
+									<span className="bg-blue-800 p-1 rounded">{free.producers[0].name}</span>
 								</div>
 							</li>
 						))}

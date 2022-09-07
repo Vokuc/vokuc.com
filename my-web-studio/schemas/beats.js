@@ -43,6 +43,11 @@ export default {
 			options: { source: "title" },
 		},
 		{
+			title: "Genre",
+			name: "genre",
+			type: "string"
+		},
+		{
 			title: "Emotion",
 			name: "emotion",
 			type: "string",

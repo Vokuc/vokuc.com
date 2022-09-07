@@ -11,7 +11,7 @@ export default function Layout({ children, home }) {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<link rel="icon" href="/public/images/vokuc_sound_logo.png" type="image/icon type"/>
+				<link rel="icon" href="../public/images/vokuc_sound_logo.png" type="image/icon"/>
 				<meta
 					name="description"
 					content="Learn how to build a personal website using Next.js"

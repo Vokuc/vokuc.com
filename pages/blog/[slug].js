@@ -2,8 +2,8 @@ import React from 'react'
 import {groq} from 'next-sanity'
 import Link from 'next/link'
 
-import {usePreviewSubscription} from '../lib/sanity'
-import {getClient} from '../lib/sanity.server'
+import {usePreviewSubscription} from '../../lib/sanity'
+import {getClient} from '../../lib/sanity.server'
 
 /**
  * Helper function to return the correct version of the document
