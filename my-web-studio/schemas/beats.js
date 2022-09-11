@@ -45,7 +45,12 @@ export default {
 		{
 			title: "Genre",
 			name: "genre",
-			type: "string"
+			type: "string",
+		},
+		{
+			title: "Sub Genre",
+			name: "subGenre",
+			type: "string",
 		},
 		{
 			title: "Emotion",
@@ -66,7 +71,27 @@ export default {
 			title: "Producers",
 			name: "producers",
 			type: "array",
-			of: [{ type: "reference", to: [{type: "person"}] }],
+			of: [{ type: "reference", to: [{ type: "person" }] }],
 		},
+		{
+			title: "Naira Lease Price",
+			name: "nairaLeasePrice",
+			type: "number"
+		},
+		{
+			title: "Dollar Lease Price",
+			name: "dollarLeasePrice",
+			type: "number"
+		},
+		{
+			title: "Naira Exclusive Price",
+			name: "nairaExclusivePrice",
+			type: "number"
+		},
+		{
+			title: "Dollar Exclusive Price",
+			name: "dollarExclusivePrice",
+			type: "number"
+		}
 	],
 };

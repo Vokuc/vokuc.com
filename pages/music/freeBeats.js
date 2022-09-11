@@ -60,3 +60,4 @@ export async function getStaticProps() {
 	const freeBeats = await sanityClient.fetch(freeBeatsQuery);
 	return { props: { freeBeats } };
 }
+
