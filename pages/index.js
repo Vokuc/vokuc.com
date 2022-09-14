@@ -14,9 +14,9 @@ export default function Home() {
 			<section className={utilStyles.headingMd}>
 				<div>
 					Hi There! My name is{" "}
-					<span className="text-white">Ukpai Chika Kalu</span> I am
+					<span className="text-black">Ukpai Chika Kalu</span> I am
 					also known as
-					<span className="text-white"> Vokuc</span>
+					<span className="text-black"> Vokuc</span>
 					<br />
 					<div className={`xl:flex mt-8 md:flex`}>
 						<Image
@@ -34,8 +34,10 @@ export default function Home() {
 					</div>
 					<div>
 						<div className="flex flex-col justify-center mt-8 p-4 bg-gradient-to-r from-black to-gray  rounded-md">
-							<span>Feel free to check out my music</span>
-							<Link href="/music/music">
+							<span>Feel free to check out my music using any of the links</span><br/>
+							<span>or</span>
+
+							<Link href="/music">
 								<a>
 									<button
 										className={`${utilStyles.button} mt-8 m-auto py-2 px-8 font-black`}

@@ -8,6 +8,7 @@ const licencedQuery = `*[_type == "beats" && type == "licenced"]{
 	_id,
 	_createdAt,
 	title,
+	slug,
 	alt,
 	file{
 	"url": asset -> url
@@ -34,6 +35,9 @@ export default function Licenced({ licenced }) {
 			<h1 className="flex justify-center text-black font-bold text-2xl my-2">
 				LICENCED BEATS
 			</h1>
+			<p className="p-2 text-black flex justify-center m-4">
+				Click on any beat for details
+			</p>
 			<ul className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
 				{licenced.length &&
 					licenced.map((beat) => (
@@ -41,7 +45,7 @@ export default function Licenced({ licenced }) {
 							key={beat?._id}
 							className={`${styles.li} p-2 flex rounded-md flex-col items-center justify-center bg-gradient-to-bl from-black mx-4 my-2`}
 						>
-							<Link href={`/`}>
+							<Link href={`/music/licencedBeats/${beat.slug.current}`}>
 								<a>
 									<Image
 										src={beat?.coverArt?.url}
@@ -62,7 +66,6 @@ export default function Licenced({ licenced }) {
 										</span>
 										<span>{beat?.producers[0].name}</span>
 										<span>{`N${beat?.nairaLeasePrice}`}</span>
-										<span>DETAILS</span>
 									</span>
 								</a>
 							</Link>
