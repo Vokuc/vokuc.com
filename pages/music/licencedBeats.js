@@ -11,22 +11,22 @@ const licencedQuery = `*[_type == "beats" && type == "licenced"]{
 	slug,
 	alt,
 	file{
-	"url": asset -> url
-  },
-  producers[]-> {
-	  name,
-	  image{
-	    "url": asset -> url
-  	  },
-  },
+		"url": asset -> url
+  	},
+  	producers[]-> {
+	  	name,
+	  	image{
+	    	"url": asset -> url
+  	  	},
+  	},
 	coverArt{
-	"url": asset -> url
-  },
-  emotion,
-  nairaExclusivePrice,
-  nairaLeasePrice,
-  dollarExclusivePrice,
-  dollarLeasePrice
+		"url": asset -> url
+	},
+  	emotion,
+  	nairaExclusivePrice,
+  	nairaLeasePrice,
+  	dollarExclusivePrice,
+  	dollarLeasePrice
 }`;
 
 export default function Licenced({ licenced }) {
