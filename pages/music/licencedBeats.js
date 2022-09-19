@@ -3,12 +3,14 @@ import Link from "next/link";
 import Layout from "../../components/layout";
 import { sanityClient } from "../../lib/sanity.server";
 import styles from "./beats.module.css";
+import { useState } from "react";
 
 const licencedQuery = `*[_type == "beats" && type == "licenced"]{
 	_id,
 	_createdAt,
 	title,
 	slug,
+	genre,
 	alt,
 	file{
 		"url": asset -> url
@@ -30,8 +32,24 @@ const licencedQuery = `*[_type == "beats" && type == "licenced"]{
 }`;
 
 export default function Licenced({ licenced }) {
+	const [searchInput, setSearchInput] = useState("");
+
+	const handleChange = (e) => {
+		e.preventDefault;
+		setSearchInput(e.target.value)
+	}
+
 	return (
 		<Layout>
+			<div className="flex justify-center">
+				<input
+					type="text"
+					placeholder="Search here"
+					onChange={handleChange}
+					value={searchInput}
+					className={`border px-2 p-2 w-3/4 rounded m-2 bg-gradient-to-b from-black to-slate-900`}
+				/>
+			</div>
 			<h1 className="flex justify-center text-black font-bold text-2xl my-2">
 				LICENCED BEATS
 			</h1>
@@ -40,7 +58,11 @@ export default function Licenced({ licenced }) {
 			</p>
 			<ul className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
 				{licenced.length &&
-					licenced.map((beat) => (
+					licenced.filter((beat) => {
+						if (beat.title.toLowerCase().includes(searchInput.toLowerCase()) || beat.genre.toLowerCase().includes(searchInput.toLowerCase())) {
+							return beat
+						}
+					}).map((beat) => (
 						<li
 							key={beat?._id}
 							className={`${styles.li} p-2 flex rounded-md flex-col items-center justify-center bg-gradient-to-bl from-black mx-4 my-2`}
