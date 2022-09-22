@@ -3,6 +3,7 @@ import Layout from "../../../components/layout";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Button from "../../../components/button";
+import Link from "next/link";
 
 const licencedQuery = `*[type == "licenced" && slug.current == $licenced][0]{
 	_id,
@@ -65,7 +66,11 @@ export default function licencedBeats({ data }) {
 					<div className="p-2 sm:flex sm:flex-col bg-red-500">
 						<div>
 							<p>Naira Lease Price: N{beat?.nairaLeasePrice} </p>
-							<Button text="GET LICENCE" />
+							<Link href="/payment">
+								<a>
+									<Button text="GET LICENCE" />
+								</a>
+							</Link>
 						</div>
 						<br />
 						<div>
