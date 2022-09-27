@@ -202,12 +202,16 @@ export default function Music({ beatsList }) {
 						/>
 					</label>
 					<div className="flex justify-center">
-						<button
-							type="submit"
-							className="rounded hover:bg-emerald-900 bg-yellow-800 w-32 m-2 p-2"
-						>
-							PAY
-						</button>
+						<Link href="/payment">
+							<a>
+								<button
+									type="submit"
+									className="rounded hover:bg-emerald-900 bg-yellow-800 w-32 m-2 p-2"
+								>
+									PAY
+								</button>
+							</a>
+						</Link>
 					</div>
 				</form>
 			</div>

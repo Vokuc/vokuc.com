@@ -3,6 +3,14 @@ import Image from "next/image";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import {
+	FaFacebook,
+	FaInstagramSquare,
+	FaHeart,
+	FaSpotify,
+	FaTiktok,
+	FaTwitter,
+} from "react-icons/fa";
 
 const name = "Chika";
 export const siteTitle = "vokuc.com";
@@ -11,7 +19,11 @@ export default function Layout({ children, home }) {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<link rel="icon" href="/public/images/vokuc_sound_logo.png" type="image/icon"/>
+				<link
+					rel="icon"
+					href="/images/vokuc_sound_logo.ico"
+					type="image/icon"
+				/>
 				<meta
 					name="description"
 					content="Learn how to build a personal website using Next.js"
@@ -61,25 +73,36 @@ export default function Layout({ children, home }) {
 					className={`${styles.footer} m-auto mt-3 flex lg:flex-col lg:h-screen items-center justify-between`}
 				>
 					<Link href="">
-						<a className="">Spotify</a>
+						<a className="">
+							<FaSpotify />
+						</a>
+					</Link>
+
+					<Link href="">
+						<a>
+							<FaTwitter />
+						</a>
 					</Link>
 					<Link href="">
-						<a>AudioMack</a>
+						<a>
+							<FaFacebook />
+						</a>
 					</Link>
 					<Link href="">
-						<a>Twitter</a>
+						<a>
+							<FaInstagramSquare />
+						</a>
 					</Link>
 					<Link href="">
-						<a>Facebook</a>
-					</Link>
-					<Link href="">
-						<a>Instagram</a>
-					</Link>
-					<Link href="">
-						<a>TikTok</a>
+						<a>
+							<FaTiktok />
+						</a>
 					</Link>
 				</footer>
 			</div>
+			<p className="flex justify-center">
+				built with <FaHeart /> by Vokuc
+			</p>
 		</div>
 	);
 }

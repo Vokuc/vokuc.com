@@ -56,7 +56,7 @@ export default function Home() {
 								have worked on{" "}
 							</div>
 
-							<Link href="/software-engineering/software-engineering">
+							<Link href="/software-engineering">
 								<a>
 									<button
 										className={`${utilStyles.button} mt-8 py-2 px-8 font-black`}
