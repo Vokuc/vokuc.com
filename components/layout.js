@@ -8,7 +8,6 @@ import {
 	FaInstagramSquare,
 	FaHeart,
 	FaSpotify,
-	FaTiktok,
 	FaTwitter,
 	FaGithub,
 } from "react-icons/fa";
@@ -54,6 +53,11 @@ export default function Layout({ children, home }) {
 											<a>Blog</a>
 										</Link>
 									</li>
+									<li className={styles.li}>
+										<Link href="/about">
+											<a>About</a>
+										</Link>
+									</li>
 								</ul>
 							</nav>
 						</div>
@@ -79,30 +83,30 @@ export default function Layout({ children, home }) {
 						</a>
 					</Link>
 
-					<Link href="">
-						<a className="">
+					<Link href="https://open.spotify.com/artist/1vGY7mCoTfDQnH5nnyHowo?si=bnzPYWV_SKiZRpXM1tm2Og">
+						<a target="_blank">
 							<FaSpotify />
 						</a>
 					</Link>
 
-					<Link href="">
-						<a>
+					<Link href="https://twitter.com/vokuc_ukpai">
+						<a target="_blank">
 							<FaTwitter />
 						</a>
 					</Link>
 
-					<Link href="">
-						<a>
+					<Link href="https://www.facebook.com/valentine.ukpai/">
+						<a target="_blank">
 							<FaFacebook />
 						</a>
 					</Link>
-					<Link href="">
+					<Link href="https://www.instagram.com/vokuc_sound/">
 						<a>
 							<FaInstagramSquare />
 						</a>
 					</Link>
-					<Link href="">
-						<a>
+					<Link href="https://audiomack.com/vokuc">
+						<a target="_blank">
 							<Image
 								width={45}
 								height={30}
