@@ -10,6 +10,7 @@ import {
 	FaSpotify,
 	FaTiktok,
 	FaTwitter,
+	FaGithub,
 } from "react-icons/fa";
 
 const name = "Chika";
@@ -72,6 +73,12 @@ export default function Layout({ children, home }) {
 				<footer
 					className={`${styles.footer} m-auto mt-3 flex lg:flex-col lg:h-screen items-center justify-between`}
 				>
+					<Link href="https://github.com/Vokuc">
+						<a target="_blank">
+							<FaGithub />
+						</a>
+					</Link>
+
 					<Link href="">
 						<a className="">
 							<FaSpotify />
@@ -83,6 +90,7 @@ export default function Layout({ children, home }) {
 							<FaTwitter />
 						</a>
 					</Link>
+
 					<Link href="">
 						<a>
 							<FaFacebook />
@@ -95,7 +103,12 @@ export default function Layout({ children, home }) {
 					</Link>
 					<Link href="">
 						<a>
-							<FaTiktok />
+							<Image
+								width={45}
+								height={30}
+								alt="audiomackicon"
+								src="/../public/images/AUDIOMACK.png"
+							/>
 						</a>
 					</Link>
 				</footer>
