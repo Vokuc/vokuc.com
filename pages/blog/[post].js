@@ -4,6 +4,8 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { usePreviewSubscription } from "../../lib/sanity";
+import { useRouter } from "next/router";
 
 const articleQuery = `*[_type == "article" && slug.current == $post][0]{
 	_id,
@@ -23,7 +25,19 @@ const articleQuery = `*[_type == "article" && slug.current == $post][0]{
 	likes,
 }`;
 
-export default function OneRecipe({ data }) {
+export default function Article({ data, preview }) {
+	
+	/* const { data: article } = usePreviewSubscription(articleQuery, {
+		params: {slug: data.article?.slug.current},
+		initialData: data,
+		enabled: preview
+	}) */
+	const router = useRouter()
+
+	if (router.isFallback) {
+		return <div>Loading...</div> 
+	}
+
 	const [likes, setLikes] = useState(data?.article?.likes);
 	const addLike = async () => {
 		const res = await fetch("/api/handle-likes", {
@@ -46,7 +60,7 @@ export default function OneRecipe({ data }) {
 				<Image
 					className="rounded-xl"
 					alt=""
-					src={article?.mainImage.url}
+					src={article?.mainImage?.url}
 					width={400}
 					height={400}
 				/>
@@ -58,7 +72,7 @@ export default function OneRecipe({ data }) {
 			<div className="m-4 flex justify-between bg-slate-800 p-4 rounded">
 				<div>
 					<h1>TAGS</h1>
-					{article.tags.map((tag) => (
+					{article?.tags?.map((tag) => (
 						<p
 							className="bg-gray-500 auto my-2 p-1 text-black font-black rounded-md w-28 flex "
 							key={tag}
@@ -110,5 +124,5 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	const { post } = params;
 	const article = await sanityClient.fetch(articleQuery, { post });
-	return { props: { data: { article } } };
+	return { props: { data: { article }, preview: true } };
 }
