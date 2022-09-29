@@ -15,7 +15,8 @@ const freeBeatsQuery = `*[_type == "beats" && type == "free"]{
   type,
   genre,
   producers[]->{name},
-  alt
+  alt,
+  likes,
 }`;
 
 export default function FreeBeats({ freeBeats }) {

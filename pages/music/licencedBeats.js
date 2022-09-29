@@ -4,6 +4,7 @@ import Layout from "../../components/layout";
 import { sanityClient } from "../../lib/sanity.server";
 import styles from "./beats.module.css";
 import { useState } from "react";
+import { FaHeart } from "react-icons/fa";
 
 const licencedQuery = `*[_type == "beats" && type == "licenced"]{
 	_id,
@@ -28,7 +29,8 @@ const licencedQuery = `*[_type == "beats" && type == "licenced"]{
   	nairaExclusivePrice,
   	nairaLeasePrice,
   	dollarExclusivePrice,
-  	dollarLeasePrice
+  	dollarLeasePrice,
+	likes,
 }`;
 
 export default function Licenced({ licenced }) {
@@ -36,8 +38,8 @@ export default function Licenced({ licenced }) {
 
 	const handleChange = (e) => {
 		e.preventDefault;
-		setSearchInput(e.target.value)
-	}
+		setSearchInput(e.target.value);
+	};
 
 	return (
 		<Layout>
@@ -58,41 +60,57 @@ export default function Licenced({ licenced }) {
 			</p>
 			<ul className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
 				{licenced.length &&
-					licenced.filter((beat) => {
-						if (beat.title.toLowerCase().includes(searchInput.toLowerCase()) || beat.genre.toLowerCase().includes(searchInput.toLowerCase())) {
-							return beat
-						}
-					}).map((beat) => (
-						<li
-							key={beat?._id}
-							className={`${styles.li} p-2 flex rounded-md flex-col items-center justify-center bg-gradient-to-bl from-black mx-4 my-2`}
-						>
-							<Link href={`/music/licencedBeats/${beat.slug.current}`}>
-								<a>
-									<Image
-										src={beat?.coverArt?.url}
-										width={150}
-										height={100}
-										alt=""
-										className="rounded-md"
-									/>
-									<audio controls controlsList="nodownload">
-										<source
-											src={beat?.file.url}
-											type="audio/mp3"
+					licenced
+						.filter((beat) => {
+							if (
+								beat.title
+									.toLowerCase()
+									.includes(searchInput.toLowerCase()) ||
+								beat.genre
+									.toLowerCase()
+									.includes(searchInput.toLowerCase())
+							) {
+								return beat;
+							}
+						})
+						.map((beat) => (
+							<li
+								key={beat?._id}
+								className={`${styles.li} p-2 flex rounded-md flex-col items-center justify-center bg-gradient-to-bl from-black mx-4 my-2`}
+							>
+								<Link
+									href={`/music/licencedBeats/${beat.slug.current}`}
+								>
+									<a>
+										<Image
+											src={beat?.coverArt?.url}
+											width={150}
+											height={100}
+											alt=""
+											className="rounded-md"
 										/>
-									</audio>
-									<span className="flex flex-col items-center">
-										<span className="bg-gradient-to-tr p-1 rounded-md">
-											{beat?.title}
+										<audio
+											controls
+											controlsList="nodownload"
+										>
+											<source
+												src={beat?.file.url}
+												type="audio/mp3"
+											/>
+										</audio>
+										<span className="flex flex-col items-center">
+											<span className="bg-gradient-to-tr p-1 rounded-md">
+												{beat?.title}
+											</span>
+											<span>
+												{beat?.producers[0].name}
+											</span>
+											<span>{`₦${beat?.nairaLeasePrice}`}</span>
 										</span>
-										<span>{beat?.producers[0].name}</span>
-										<span>{`N${beat?.nairaLeasePrice}`}</span>
-									</span>
-								</a>
-							</Link>
-						</li>
-					))}
+									</a>
+								</Link>
+							</li>
+						))}
 			</ul>
 		</Layout>
 	);

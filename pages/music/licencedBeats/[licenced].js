@@ -4,6 +4,8 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Button from "../../../components/button";
 import Link from "next/link";
+import { FaHeart } from "react-icons/fa";
+import { useState } from "react";
 
 const licencedQuery = `*[type == "licenced" && slug.current == $licenced][0]{
 	_id,
@@ -26,10 +28,26 @@ const licencedQuery = `*[type == "licenced" && slug.current == $licenced][0]{
   nairaExclusivePrice,
   nairaLeasePrice,
   dollarExclusivePrice,
-  dollarLeasePrice
+  dollarLeasePrice,
+  likes,
 }`;
 
-export default function licencedBeats({ data }) {
+export default function LicencedBeats({ data }) {
+	const [likes, setLikes] = useState(data?.beat?.likes);
+	
+	const addLike = async () => {
+		
+		const res = await fetch("/api/handle-likes", {
+			method: "POST",
+			body: JSON.stringify({ _id: beat._id }),
+			
+		}).catch((error) => console.log(`this error: ${error} is annoying `));
+		
+		const data = await res.json();
+		
+		setLikes(data.likes);
+	};
+	
 	const { beat } = data;
 	return (
 		<Layout>
@@ -50,7 +68,6 @@ export default function licencedBeats({ data }) {
 							height={250}
 							alt={beat.alt}
 						/>
-
 						<audio
 							className="w-48 my-4"
 							controls
@@ -61,11 +78,15 @@ export default function licencedBeats({ data }) {
 								type="audio/mp3"
 							></source>
 						</audio>
+						<button title="like button" onClick={addLike} className="text-3xl text-red-500 border-4 border-double border-red-700">
+							{likes}
+							<FaHeart className="m-4" />
+						</button>
 					</div>
 
 					<div className="p-2 sm:flex sm:flex-col bg-red-500">
 						<div>
-							<p>Naira Lease Price: N{beat?.nairaLeasePrice} </p>
+							<p>Naira Lease Price: ₦{beat?.nairaLeasePrice} </p>
 							<Link href="/payment">
 								<a>
 									<Button text="GET LICENCE" />
@@ -83,7 +104,7 @@ export default function licencedBeats({ data }) {
 						<br />
 						<div>
 							<p>
-								Naira Exclusive Price: N
+								Naira Exclusive Price: ₦
 								{beat?.nairaExclusivePrice}
 							</p>
 							<Button text="GET LICENCE" />

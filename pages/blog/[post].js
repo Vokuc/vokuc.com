@@ -2,6 +2,8 @@ import { sanityClient } from "../../lib/sanity.server";
 import Layout from "../../components/layout";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import { useState } from "react";
+import { FaHeart } from "react-icons/fa";
 
 const articleQuery = `*[_type == "article" && slug.current == $post][0]{
 	_id,
@@ -18,9 +20,22 @@ const articleQuery = `*[_type == "article" && slug.current == $post][0]{
 		}
 	},
 	tags,
+	likes,
 }`;
 
 export default function OneRecipe({ data }) {
+	const [likes, setLikes] = useState(data?.article?.likes);
+	const addLike = async () => {
+		const res = await fetch("/api/handle-likes", {
+			method: "POST",
+			body: JSON.stringify({ _id: article._id }),
+		}).catch((error) => console.log(error));
+
+		const data = await res.json;
+
+		setLikes(data.likes);
+	};
+
 	const { article } = data;
 	return (
 		<Layout>
@@ -40,11 +55,26 @@ export default function OneRecipe({ data }) {
 					<PortableText value={article?.content} />
 				</section>
 			</article>
-			<div className="m-4 bg-slate-800 p-4 rounded">
-				<h1>TAGS</h1>
-				{article.tags.map((tag) => (
-					<p className="bg-gray-500 auto my-2 p-1 text-black font-black rounded-md w-28 flex " key={tag}> {tag} </p>
-				))}
+			<div className="m-4 flex justify-between bg-slate-800 p-4 rounded">
+				<div>
+					<h1>TAGS</h1>
+					{article.tags.map((tag) => (
+						<p
+							className="bg-gray-500 auto my-2 p-1 text-black font-black rounded-md w-28 flex "
+							key={tag}
+						>
+							{" "}
+							{tag}{" "}
+						</p>
+					))}
+				</div>
+				<div className="bg-blue-900 p-2 m-2">
+					<h1 className="flex justify-center">Likes</h1>
+					<button onClick={addLike} className="border-4 border-double">
+						{likes}
+						<FaHeart className="m-2 text-4xl text-red-500" />
+					</button>
+				</div>
 			</div>
 			<div className="m-4 bg-slate-800 p-4 rounded">
 				<h2>AUTHORS</h2>

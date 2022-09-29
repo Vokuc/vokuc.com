@@ -23,10 +23,10 @@ export default function About({ people }) {
 							<a style={{ textDecoration: "none" }}>
 								<li
 									style={{ boxShadow: "inherit" }}
-									className="flex hover:p-3 flex-col w-40 p-4 m-2 bg-black rounded-xl justify-center"
+									className="flex hover:p-3 flex-col w-40 p-4 m-2  justify-center"
 								>
 									<Image
-										className=""
+										className="rounded"
 										alt={person.name}
 										width={100}
 										height={100}
@@ -35,7 +35,7 @@ export default function About({ people }) {
 									<p className="flex text-lg justify-center">
 										{person?.name}
 									</p>
-									<p>{person?.bio[0]?.children[0]?.text}</p>
+									<p className="flex justify-center">{person?.bio[0]?.children[0]?.text}</p>
 								</li>
 							</a>
 						</Link>

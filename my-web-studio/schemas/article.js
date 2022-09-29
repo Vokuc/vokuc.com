@@ -48,5 +48,13 @@ export default {
 			type: "array",
 			of: [{ type: "string" }],
 		},
+		{
+			title: "Likes",
+			name: "likes",
+			type: "number",
+		},
 	],
+	initialValue: {
+		likes: 0,
+	},
 };

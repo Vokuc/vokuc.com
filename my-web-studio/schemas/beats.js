@@ -76,22 +76,30 @@ export default {
 		{
 			title: "Naira Lease Price",
 			name: "nairaLeasePrice",
-			type: "number"
+			type: "number",
 		},
 		{
 			title: "Dollar Lease Price",
 			name: "dollarLeasePrice",
-			type: "number"
+			type: "number",
 		},
 		{
 			title: "Naira Exclusive Price",
 			name: "nairaExclusivePrice",
-			type: "number"
+			type: "number",
 		},
 		{
 			title: "Dollar Exclusive Price",
 			name: "dollarExclusivePrice",
-			type: "number"
-		}
+			type: "number",
+		},
+		{
+			title: "Likes",
+			name: "likes",
+			type: "number",
+		},
 	],
+	initialValue: {
+		likes: 0,
+	},
 };
