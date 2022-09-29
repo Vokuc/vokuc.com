@@ -32,13 +32,13 @@ export default function Article({ data, preview }) {
 		initialData: data,
 		enabled: preview
 	}) */
+	const [likes, setLikes] = useState(data?.article?.likes);
 	const router = useRouter()
 
 	if (router.isFallback) {
 		return <div>Loading...</div> 
 	}
 
-	const [likes, setLikes] = useState(data?.article?.likes);
 	const addLike = async () => {
 		const res = await fetch("/api/handle-likes", {
 			method: "POST",
