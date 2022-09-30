@@ -1,7 +1,6 @@
 import { sanityClient } from "../../../lib/sanity.server";
 import Layout from "../../../components/layout";
 import Image from "next/image";
-import { PortableText } from "@portabletext/react";
 import Button from "../../../components/button";
 import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
@@ -78,7 +77,7 @@ export default function LicencedBeats({ data }) {
 								type="audio/mp3"
 							></source>
 						</audio>
-						<button title="like button" onClick={addLike} className="text-3xl text-red-500 border-4 border-double border-red-700">
+						<button onClick={addLike} className="text-3xl text-red-500 border-4 border-double border-red-700">
 							{likes}
 							<FaHeart className="m-4" />
 						</button>
