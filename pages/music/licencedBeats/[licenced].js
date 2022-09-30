@@ -42,9 +42,9 @@ export default function LicencedBeats({ data }) {
 			body: JSON.stringify({ _id: beat._id }),
 			
 		}).catch((error) => console.log(`this error: ${error} is annoying `));
-		
+		console.log(res)
 		const data = await res.json();
-		
+		console.log(data)
 		setLikes(data.likes);
 	};
 	

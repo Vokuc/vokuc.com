@@ -5,6 +5,7 @@ import { urlFor } from "../../lib/sanity";
 import beatStyle from "./beats.module.css";
 import { useState } from "react";
 import Image from "next/image";
+import { FaHeart } from "react-icons/fa";
 
 const freeBeatsQuery = `*[_type == "beats" && type == "free"]{
     _id,
@@ -22,6 +23,20 @@ const freeBeatsQuery = `*[_type == "beats" && type == "free"]{
 export default function FreeBeats({ freeBeats }) {
 	const [searchInput, setSearchInput] = useState("");
 
+	const [likes, setLikes] = useState(freeBeats?.likes);
+
+	const addLike = async () => {
+		
+		const res = await fetch("/api/handle-likes", {
+			method: "POST",
+			body: JSON.stringify({ _id: freeBeats._id }),
+			
+		}).catch((error) => console.log(`this error: ${error} is annoying `));
+		console.log(res)
+		const data = await res.json();
+		console.log(data)
+		setLikes(data.likes);
+	};
 	const handleChange = (e) => {
 		e.preventDefault;
 		setSearchInput(e.target.value);
@@ -60,6 +75,7 @@ export default function FreeBeats({ freeBeats }) {
 							})
 							.map((free) => (
 								<li
+									title={free.title}
 									className={`${beatStyle.li} flex flex-col h-40 w-32 bg-black m-2 p-2 rounded-md`}
 									key={free._id}
 								>
@@ -77,8 +93,18 @@ export default function FreeBeats({ freeBeats }) {
 									</audio>
 									<div className="flex flex-col bg-red-900 rounded p-1">
 										<span className="">{free.title}</span>
-										<span className="bg-blue-800 p-1 rounded">
+										<span className="bg-blue-800 flex justify-between p-1 rounded">
 											{free.producers[0].name}
+											<span>
+												<button
+													title="like button"
+													onClick={addLike}
+													className="border-2 p-1"
+												>
+													{likes}
+													<FaHeart className="text-red-400" />
+												</button>
+											</span>
 										</span>
 									</div>
 								</li>
