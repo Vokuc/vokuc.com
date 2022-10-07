@@ -33,20 +33,18 @@ const licencedQuery = `*[type == "licenced" && slug.current == $licenced][0]{
 
 export default function LicencedBeats({ data }) {
 	const [likes, setLikes] = useState(data?.beat?.likes);
-	
+
 	const addLike = async () => {
-		
 		const res = await fetch("/api/handle-likes", {
 			method: "POST",
 			body: JSON.stringify({ _id: beat._id }),
-			
 		}).catch((error) => console.log(`this error: ${error} is annoying `));
-		console.log(res)
+
 		const data = await res.json();
-		console.log(data)
+
 		setLikes(data.likes);
 	};
-	
+
 	const { beat } = data;
 	return (
 		<Layout>
@@ -77,7 +75,10 @@ export default function LicencedBeats({ data }) {
 								type="audio/mp3"
 							></source>
 						</audio>
-						<button onClick={addLike} className="text-3xl text-red-500 border-4 border-double border-red-700">
+						<button
+							onClick={addLike}
+							className="text-3xl text-red-500 border-4 border-double border-red-700"
+						>
 							{likes}
 							<FaHeart className="m-4" />
 						</button>
@@ -125,7 +126,7 @@ export default function LicencedBeats({ data }) {
 
 export async function getStaticPaths() {
 	const paths = await sanityClient.fetch(
-		`*[_type == "beats" && defined(slug.current)]{
+		`*[type == "licenced" && defined(slug.current)]{
 			"params": {
 				"licenced": slug.current
 			}

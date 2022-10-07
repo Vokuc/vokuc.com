@@ -4,7 +4,6 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import { usePreviewSubscription } from "../../lib/sanity";
 import { useRouter } from "next/router";
 
 const articleQuery = `*[_type == "article" && slug.current == $post][0]{
@@ -25,13 +24,8 @@ const articleQuery = `*[_type == "article" && slug.current == $post][0]{
 	likes,
 }`;
 
-export default function Article({ data, preview }) {
+export default function Article({ data }) {
 	
-	/* const { data: article } = usePreviewSubscription(articleQuery, {
-		params: {slug: data.article?.slug.current},
-		initialData: data,
-		enabled: preview
-	}) */
 	const [likes, setLikes] = useState(data?.article?.likes);
 	const router = useRouter()
 
@@ -124,5 +118,5 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	const { post } = params;
 	const article = await sanityClient.fetch(articleQuery, { post });
-	return { props: { data: { article }, preview: true } };
+	return { props: { data: { article } } };
 }
