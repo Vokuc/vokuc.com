@@ -7,7 +7,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
 
-const freeBeatsQuery = `*[_type == "beats" && type == "free"]{
+const freeBeatsQuery = `*[_type == "freeBeats"]{
     _id,
   coverArt {"url": asset -> url},
   emotion,

@@ -11,6 +11,7 @@ import audio from "./audio";
 import eventInformation from "./eventInformation";
 import article from "./article";
 import customBeats from "./customBeats";
+import freeBeats from "./freeBeats";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
 	// We name our schema
@@ -27,5 +28,6 @@ export default createSchema({
 		audio,
 		article,
 		customBeats,
+		freeBeats,
 	]),
 });
