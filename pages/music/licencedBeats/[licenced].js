@@ -33,7 +33,7 @@ const licencedQuery = `*[type == "licenced" && slug.current == $licenced][0]{
 
 export default function LicencedBeats({ data }) {
 	const [likes, setLikes] = useState(data?.beat?.likes);
-
+	console.log(data)
 	const addLike = async () => {
 		const res = await fetch("/api/handle-likes", {
 			method: "POST",

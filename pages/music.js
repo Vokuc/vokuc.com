@@ -58,9 +58,9 @@ export default function Music({ beatsList }) {
 					<h1 className="p-2 text-xl">FREE BEATS</h1>
 					<ul>
 						{free.length &&
-							free.map((free) => (
+							free.map((free, index) => (
 								<li
-									key={free.id}
+									key={index}
 									className="m-2 flex justify-between bg-green-700 p-2 rounded"
 								>
 									<div className="">
@@ -104,9 +104,9 @@ export default function Music({ beatsList }) {
 					<h1 className="p-2 text-xl">LICENCED BEATS</h1>
 					<ul>
 						{licenced.length &&
-							licenced.map((licenced) => (
+							licenced.map((licenced, index) => (
 								<li
-									key={licenced.id}
+									key={index}
 									className="m-2 flex justify-between bg-green-700 p-2 rounded"
 								>
 									<div className="">
