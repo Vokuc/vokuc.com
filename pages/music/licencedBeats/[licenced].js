@@ -45,7 +45,8 @@ export default function LicencedBeats({ data }) {
 		setLikes(data.likes);
 	};
 
-	const { beat } = data;
+	const { beat } = data || {};
+	console.log("beat: ", beat);
 	return (
 		<Layout>
 			<div className="text-black font-bold">
