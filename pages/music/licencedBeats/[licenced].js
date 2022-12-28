@@ -45,23 +45,23 @@ export default function LicencedBeats({ data }) {
 		setLikes(data.likes);
 	};
 
-	//const { beat } = data || {};
-	//console.log("beat: ", beat);
+	const { beat } = data || {};
+	
 	return (
 		<Layout>
 			<div className="text-black font-bold">
 				<div className="m-2 p-2 flex justify-between font-black text-2xl">
-					<h1>{data.beat.title}</h1>{" "}
+					<h1>{beat?.title}</h1>{" "}
 					<span className="text-base font-normal text-blue-900">
 						produced by
 					</span>{" "}
-					<h2>{data.beat.producers[0].name}</h2>
+					<h2>{beat?.producers[0].name}</h2>
 				</div>
 				<div className="flex lg:justify-between">
 					<div className="m-2">
 						<Image
 							className="rounded-md"
-							src={data.beat.coverArt.url}
+							src={beat?.coverArt.url}
 							width={250}
 							height={250}
 							alt={data.beat.alt}
@@ -72,7 +72,7 @@ export default function LicencedBeats({ data }) {
 							controlsList="nodownload"
 						>
 							<source
-								src={data.beat?.file.url}
+								src={beat?.file.url}
 								type="audio/mp3"
 							></source>
 						</audio>
@@ -87,7 +87,7 @@ export default function LicencedBeats({ data }) {
 
 					<div className="p-2 sm:flex sm:flex-col bg-red-500">
 						<div>
-							<p>Naira Lease Price: ₦{data.beat?.nairaLeasePrice} </p>
+							<p>Naira Lease Price: ₦{beat?.nairaLeasePrice} </p>
 							<Link href="/payment">
 								<a>
 									<Button text="GET LICENCE" />
@@ -97,7 +97,7 @@ export default function LicencedBeats({ data }) {
 						<br />
 						<div>
 							<p>
-								Dollar Lease Price: ${data.beat?.dollarLeasePrice}{" "}
+								Dollar Lease Price: ${beat?.dollarLeasePrice}{" "}
 							</p>
 							<Button text="GET LICENCE" />
 						</div>
@@ -106,7 +106,7 @@ export default function LicencedBeats({ data }) {
 						<div>
 							<p>
 								Naira Exclusive Price: ₦
-								{data.beat?.nairaExclusivePrice}
+								{beat?.nairaExclusivePrice}
 							</p>
 							<Button text="GET LICENCE" />
 						</div>
@@ -114,7 +114,7 @@ export default function LicencedBeats({ data }) {
 						<div>
 							<p>
 								Dollar Exclusive Price: $
-								{data.beat?.dollarExclusivePrice}
+								{beat?.dollarExclusivePrice}
 							</p>
 							<Button text="GET LICENCE" />
 						</div>
