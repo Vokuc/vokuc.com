@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const musicQuery = `{
-	"free": *[type == "free"] | order(title) {
+	"free": *[_type == "freeBeats"] | order(title) {
 		_id,
 		producers[]->{
 	  		name,
