@@ -12,6 +12,7 @@ import {
 	FaGithub,
 	FaJs,
 } from "react-icons/fa";
+import Images from "../public/images/images";
 
 const iconStyles =
 	"text-6xl m-4 p-4 border border-red-800 flex flex-col justify-center";
@@ -46,16 +47,16 @@ export default function Software() {
 						alt="next js icon"
 						width={80}
 						height={80}
-						src="/../public/images/nextjslogo.png"
+						src={Images.nextJsLogo}
 					/>
 					<p className={iconTextStyles}>NEXT JS</p>
 				</div>
 				<div className={`${iconStyles}`}>
 					<Image
-						alt="next js icon"
+						alt="tailwind icon"
 						width={80}
 						height={80}
-						src="/../public/images/tailwind.png"
+						src={Images.tailwind}
 					/>
 					<p className={iconTextStyles}>TAILWIND CSS</p>
 				</div>
@@ -64,7 +65,7 @@ export default function Software() {
 						alt="next js icon"
 						width={80}
 						height={80}
-						src="/../public/images/sanitylogo.png"
+						src={Images.sanity}
 					/>
 					<p className={iconTextStyles}>SANITY</p>
 				</div>

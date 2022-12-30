@@ -4,6 +4,7 @@ import Image from "next/image";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import Button from "../components/button";
+import Me from "../public/images/meinwhite.jpg";
 
 export default function Home() {
 	return (
@@ -20,7 +21,7 @@ export default function Home() {
 					<br />
 					<div className={`xl:flex mt-8 md:flex`}>
 						<Image
-							src="/../public/images/meinwhite.jpg"
+							src={Me}
 							className={utilStyles.Image}
 							height={530}
 							width={400}

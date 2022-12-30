@@ -11,6 +11,7 @@ import {
 	FaTwitter,
 	FaGithub,
 } from "react-icons/fa";
+import AudioMack from "../public/images/AUDIOMACK.png";
 
 const name = "Chika";
 export const siteTitle = "vokuc.com";
@@ -111,7 +112,7 @@ export default function Layout({ children, home }) {
 								width={45}
 								height={30}
 								alt="audiomackicon"
-								src="/../public/images/AUDIOMACK.png"
+								src={AudioMack}
 							/>
 						</a>
 					</Link>

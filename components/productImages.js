@@ -1,33 +1,33 @@
+import Images from "../public/images/images";
 export const projectsImages = [
 	{
 		id: 4,
-		documentLink: "/../public/images/TECHNICAL DOCUMENTATION PAGE.png",
+		documentLink: Images.technicalDoc,
 		projectLink: "https://codepen.io/vokuc/pen/ExwgOrE",
-		name: "TECHNICAL DOCUMENTATION PAGE"
+		name: "TECHNICAL DOCUMENTATION PAGE",
 	},
 	{
 		id: 1,
-		documentLink:
-			"/../public/images/JAVASCRIPT CALCULATOR WITH REACT.png",
+		documentLink: Images.javaScriptCalc,
 		projectLink: "https://codepen.io/vokuc/pen/jOzVmQB",
-		name: "JS CALCULATOR WITH REACT"
+		name: "JS CALCULATOR WITH REACT",
 	},
 	{
 		id: 2,
-		documentLink: "/../public/images/PRODUCT LANDING PAGE.png",
+		documentLink: Images.productLandingPage,
 		projectLink: "https://codepen.io/vokuc/pen/xxLoYEE",
-		name: "PRODUCT LANDING PAGE"
+		name: "PRODUCT LANDING PAGE",
 	},
 	{
 		id: 3,
-		documentLink: "/../public/images/REACT POMODORO CLOCK.png",
+		documentLink: Images.reactPomodoroApp,
 		projectLink: "https://codepen.io/vokuc/pen/OJvmBRv",
-		name: "POMODORO CLOCK WITH REACT"
+		name: "POMODORO CLOCK WITH REACT",
 	},
 	{
 		id: 5,
-		documentLink: "/../public/images/TRIBUTE PAGE.png",
+		documentLink: Images.tributePage,
 		projectLink: "https://codepen.io/vokuc/pen/GRvYrXe",
-		name: "TRIBUTE PAGE"
+		name: "TRIBUTE PAGE",
 	},
 ];
