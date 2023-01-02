@@ -58,7 +58,7 @@ export default function Licenced({ licenced }) {
 			<p className="p-2 text-black flex justify-center m-4">
 				Click on any beat for details
 			</p>
-			<ul className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
+			<ul className={`flex flex-wrap grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
 				{licenced.length &&
 					licenced
 						.filter((beat) => {

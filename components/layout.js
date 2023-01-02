@@ -10,6 +10,11 @@ import {
 	FaSpotify,
 	FaTwitter,
 	FaGithub,
+	FaLaptopCode,
+	FaLaptop,
+	FaMusic,
+	FaBlog,
+	FaQuestion
 } from "react-icons/fa";
 import AudioMack from "../public/images/AUDIOMACK.png";
 
@@ -37,26 +42,26 @@ export default function Layout({ children, home }) {
 						<div>
 							<nav>
 								<ul
-									className={`font-bold items-center lg:mr-2 lg:h-screen flex lg:flex-col justify-between`}
+									className={`font-bold items-center lg:mx-8 lg:h-screen flex lg:flex-col justify-between`}
 								>
 									<li className={styles.li}>
 										<Link href="/software-engineering">
-											<a>Software Engineering</a>
+											<a><FaLaptop /></a>
 										</Link>
 									</li>
 									<li className={styles.li}>
 										<Link href="/music">
-											<a>Music</a>
+											<a><FaMusic/></a>
 										</Link>
 									</li>
 									<li className={styles.li}>
 										<Link href="/blog">
-											<a>Blog</a>
+											<a><FaBlog/></a>
 										</Link>
 									</li>
 									<li className={styles.li}>
 										<Link href="/about">
-											<a>About</a>
+											<a><FaQuestion/></a>
 										</Link>
 									</li>
 								</ul>

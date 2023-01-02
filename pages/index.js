@@ -28,7 +28,7 @@ export default function Home() {
 							alt="photo of Chika"
 						/>
 						<div
-							className={`${utilStyles.profImg} bg-blue-900 m-4 font-extrabold md:h-48 h-32 mx-2 rounded-lg p-8`}
+							className={`${utilStyles.profImg} bg-blue-900 m-4 font-extrabold md:h-48  mx-2 rounded-lg p-8`}
 						>
 							I AM A MUSIC PRODUCER AND SOFTWARE ENGINEER.
 						</div>

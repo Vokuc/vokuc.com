@@ -58,7 +58,7 @@ export default function FreeBeats({ freeBeats }) {
 					FREE BEATS
 				</h1>
 
-				<ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+				<ul className="flex flex-wrap grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
 					{freeBeats.length &&
 						freeBeats
 							.filter((free) => {
