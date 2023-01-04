@@ -14,7 +14,7 @@ import {
 	FaLaptop,
 	FaMusic,
 	FaBlog,
-	FaQuestion
+	FaQuestion,
 } from "react-icons/fa";
 import AudioMack from "../public/images/AUDIOMACK.png";
 
@@ -30,10 +30,7 @@ export default function Layout({ children, home }) {
 					href="/images/vokuc_sound_logo.ico"
 					type="image/icon"
 				/>
-				<meta
-					name="description"
-					content="Learn how to build a personal website using Next.js"
-				/>
+				<meta name="description" content="The Vokuc Web" />
 				<title>{siteTitle}</title>
 			</Head>
 			<div className={`lg:flex`}>
@@ -46,22 +43,30 @@ export default function Layout({ children, home }) {
 								>
 									<li className={styles.li}>
 										<Link href="/software-engineering">
-											<a><FaLaptop /></a>
+											<a>
+												<FaLaptop />
+											</a>
 										</Link>
 									</li>
 									<li className={styles.li}>
 										<Link href="/music">
-											<a><FaMusic/></a>
+											<a>
+												<FaMusic />
+											</a>
 										</Link>
 									</li>
 									<li className={styles.li}>
 										<Link href="/blog">
-											<a><FaBlog/></a>
+											<a>
+												<FaBlog />
+											</a>
 										</Link>
 									</li>
 									<li className={styles.li}>
 										<Link href="/about">
-											<a><FaQuestion/></a>
+											<a>
+												<FaQuestion />
+											</a>
 										</Link>
 									</li>
 								</ul>
