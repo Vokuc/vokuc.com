@@ -70,5 +70,18 @@
 }
 
 .profImg {
-  background-color: #000000;
+  background-color: #896901;
 }
+
+.embla {
+  overflow: hidden;
+}
+.embla_container {
+  display: flex;
+}
+.embla_slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  width: 500px;
+}
+

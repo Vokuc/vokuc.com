@@ -11,6 +11,8 @@ import {
 	FaGit,
 	FaGithub,
 	FaJs,
+	FaNode,
+	FaNodeJs,
 } from "react-icons/fa";
 import Images from "../public/images/images";
 
@@ -77,6 +79,38 @@ export default function Software() {
 					<FaGithub />
 					<p className={`${iconTextStyles}`}>GITHUB</p>
 				</div>
+				<div className={`${iconStyles} text-green-900 flex flex-col`}>
+					<FaNodeJs />
+					<p className={`${iconTextStyles}`}>NODE JS</p>
+				</div>
+				<div className={`${iconStyles} text-green-900 flex flex-col`}>
+					<Image
+						alt="next js icon"
+						width={80}
+						height={80}
+						src={Images.express}
+					/>
+					<p className={`${iconTextStyles}`}>EXPRESS</p>
+				</div>
+				<div className={`${iconStyles} text-green-900 flex flex-col`}>
+					<Image
+						alt="next js icon"
+						width={80}
+						height={80}
+						src={Images.mongodb}
+					/>
+					<p className={`${iconTextStyles}`}>MONGODB</p>
+				</div>
+				<div className={`${iconStyles} text-green-900 flex flex-col`}>
+					<Image
+						alt="next js icon"
+						width={80}
+						height={80}
+						src={Images.mongoose}
+					/>
+					<p className={`${iconTextStyles}`}>MONGOOSE JS</p>
+				</div>
+				
 			</div>
 			<div>
 				<h3
@@ -93,7 +127,10 @@ export default function Software() {
 							style={{ listStyleType: "none" }}
 						>
 							<Link href={item.projectLink}>
-								<a target="_blank" style={{ textDecoration: "none" }}>
+								<a
+									target="_blank"
+									style={{ textDecoration: "none" }}
+								>
 									<Image
 										alt="item"
 										className=""

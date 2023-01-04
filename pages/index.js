@@ -3,10 +3,21 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import Button from "../components/button";
-import Me from "../public/images/meinwhite.jpg";
+import Images from "../public/images/images";
+import useEmblaCarousel from "embla-carousel-react";
+import { useEffect } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Home() {
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [
+		Autoplay(),
+	]);
+
+	useEffect(() => {
+		if (emblaApi) {
+			// Embla API is ready
+		}
+	}, [emblaApi]);
 	return (
 		<Layout home>
 			<Head>
@@ -20,22 +31,86 @@ export default function Home() {
 					<span className="text-black"> Vokuc</span>
 					<br />
 					<div className={`xl:flex mt-8 md:flex`}>
-						<Image
-							src={Me}
-							className={utilStyles.Image}
-							height={530}
-							width={400}
-							alt="photo of Chika"
-						/>
-						<div
-							className={`${utilStyles.profImg} bg-blue-900 m-4 font-extrabold md:h-48  mx-2 rounded-lg p-8`}
-						>
-							I AM A MUSIC PRODUCER AND SOFTWARE ENGINEER.
+						{/* Embla js carousel viewPort */}
+						<div className={`${utilStyles.embla} `} ref={emblaRef}>
+							<div
+								className={`${utilStyles.embla_container} flex m-2`}
+							>
+								<div
+									className={`${utilStyles.embla_slide} px-2`}
+								>
+									<Image
+										src={Images.Me1}
+										height={530}
+										width={400}
+										alt="photo of Chika"
+									/>
+								</div>
+								<div
+									className={`${utilStyles.embla_slide} px-2`}
+								>
+									<Image
+										src={Images.Me2}
+										height={530}
+										width={400}
+										alt="photo of Chika"
+									/>
+								</div>
+								<div
+									className={`${utilStyles.embla_slide} px-2`}
+								>
+									<Image
+										src={Images.Me3}
+										height={530}
+										width={400}
+										alt="photo of Chika"
+									/>
+								</div>
+								<div
+									className={`${utilStyles.embla_slide} px-2`}
+								>
+									<Image
+										src={Images.Me4}
+										height={530}
+										width={400}
+										alt="photo of Chika"
+									/>
+								</div>
+								<div
+									className={`${utilStyles.embla_slide} px-2`}
+								>
+									<Image
+										src={Images.Me5}
+										height={530}
+										width={400}
+										alt="photo of Chika"
+									/>
+								</div>
+								<div
+									className={`${utilStyles.embla_slide} px-2`}
+								>
+									<Image
+										src={Images.Me6}
+										height={530}
+										width={400}
+										alt="photo of Chika"
+									/>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div>
-						<div className="flex flex-col justify-center mt-8 p-4 bg-gradient-to-r from-black to-gray  rounded-md">
-							<span>Feel free to check out my music using any of the links</span><br/>
+						<div
+							className={`${utilStyles.profImg} bg-blue-900 flex justify-center m-4 font-extrabold md:h-28  mx-2 rounded-lg p-8`}
+						>
+							I AM A MUSIC PRODUCER AND SOFTWARE ENGINEER.
+						</div>
+						<div className="flex flex-col justify-center mt-8 p-4 bg-gradient-to-r from-green-900 to-red-900  rounded-md">
+							<span>
+								Feel free to check out my music using any of the
+								links
+							</span>
+							<br />
 							<span>or</span>
 
 							<Link href="/music">
@@ -50,7 +125,7 @@ export default function Home() {
 						</div>
 						<div
 							id="soft"
-							className={`flex flex-col justify-center mt-8 bg-gradient-to-l from-black to-gray p-4 rounded-md`}
+							className={`flex flex-col justify-center mt-8 bg-gradient-to-l from-black to-yellow-700 p-4 rounded-md`}
 						>
 							<div>
 								Want to see the software engineering projects I
