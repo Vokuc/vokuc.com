@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
+import Layout from "../components/layout";
 
 export default function Fallback() {
-  return (
-    <Layout>
-      <h1>404 Not Found</h1>
-      <p>Sorry, the page you are looking for could not be found.</p>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<h1>404 Not Found</h1>
+			<p>Sorry, the page you are looking for could not be found.</p>
+		</Layout>
+	);
 }
